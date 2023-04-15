@@ -1,0 +1,34 @@
+version: '3.4'
+networks:
+  api:
+
+services:
+  webapidb:
+    container_name: webapidb
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - '41399:1433'
+    environment:
+        - ACCEPT_EULA=Y
+        - User=sa
+        - MSSQL_SA_PASSWORD=strongPassword
+    networks:
+      - api 
+
+  webapi:
+    container_name: webapi
+    image: ${DOCKER_REGISTRY-}webapi
+    ports:
+      - '41400:80'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - webapidb
+    environment:
+      - DB_HOST=WebApiHost
+      - DB_NAME=WebApi
+      - DB_SA_PASSWORD=strongPassword
+      - DB_USER=sa
+    networks:
+      - api
