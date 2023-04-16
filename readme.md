@@ -8,5 +8,5 @@ rm -- "$0"
 ```
 ## dc.sh [args]
 ```sh
-docker-compose -f "docker-compose.yml" up [args] --build
+docker-compose -f "docker-compose.yml" [args]
 ```
