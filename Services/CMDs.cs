@@ -32,7 +32,8 @@ namespace WebAPI.Services
 
         public async Task<SampleModel> Insert(In_SampleModel Entity)
         {
-           var res = await ctx.entity.AddAsync(Entity.AutoMap<In_SampleModel, SampleModel>());
+           var ent = Entity.AutoMap<In_SampleModel, SampleModel>();
+           var res = await ctx.entity.AddAsync(ent);
            await ctx.SaveChangesAsync();
            return res.Entity;
         }

@@ -23,6 +23,6 @@ namespace WebAPI
                 Console.WriteLine(ex.Message);
             }
         }
-            public DbSet<SampleModel> entity {get; set;} = null!;
+        public DbSet<SampleModel> entity {get; set;} = null!;
     }
 }

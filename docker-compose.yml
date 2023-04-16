@@ -11,7 +11,7 @@ services:
     environment:
         - ACCEPT_EULA=Y
         - User=sa
-        - MSSQL_SA_PASSWORD=strongPassword
+        - MSSQL_SA_PASSWORD=str0ng_Password
     networks:
       - api 
 
@@ -26,9 +26,9 @@ services:
     depends_on:
       - webapidb
     environment:
-      - DB_HOST=WebApiHost
-      - DB_NAME=WebApi
-      - DB_SA_PASSWORD=strongPassword
+      - DB_HOST=webapidb
+      - DB_NAME=webapi
+      - DB_SA_PASSWORD=str0ng_Password
       - DB_USER=sa
     networks:
       - api

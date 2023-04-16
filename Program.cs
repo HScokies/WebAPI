@@ -26,7 +26,9 @@ builder.Services.AddScoped<ICMDs, CMDs>();
 var CorsPolicy = "corsPolicy";
 builder.Services.AddCors(
     p => p.AddPolicy(name: CorsPolicy,
-    build => build.AllowAnyOrigin()
+    build => {
+        build.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        }
     )
 );
 
@@ -40,6 +42,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors(CorsPolicy);
 
 app.UseAuthorization();
 

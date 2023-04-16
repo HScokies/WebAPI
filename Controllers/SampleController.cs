@@ -1,18 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Models.Entities;
-
 using WebAPI.Services.Interfaces;
-using Microsoft.Extensions.Logging;
+
 
 namespace WebAPI.Controllers
 {
+    [Route("api")]
     [ApiController]
-    [Route("[controller]")]
     public class SampleController : Controller
     {
         private readonly ICMDs cmd;
@@ -24,7 +18,7 @@ namespace WebAPI.Controllers
         
         [HttpGet("ping")]
         public ActionResult<string> Ping(){
-            return Ok("Pong!");
+            return Ok("pong!");
             
         }
 
